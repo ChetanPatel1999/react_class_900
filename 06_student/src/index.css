@@ -1,0 +1,19 @@
+h1 {
+  background-color: blue;
+  color: white;
+}
+
+.para {
+  background-color: red;
+  color: white;
+}
+
+.image {
+  width: 400px;
+  border-radius: 100px;
+}
+
+#myid {
+  background-color: chartreuse;
+  color:black;
+}
