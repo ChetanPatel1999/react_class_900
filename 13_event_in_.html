@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myButton">Click Me</button>
+    <script>
+        let btn = document.querySelector("#myButton");
+        btn.addEventListener("click", () => {
+            console.log("hello js")
+            document.querySelector("body").style.backgroundColor = "red";
+        })
+    </script>
+</body>
+
+</html>
