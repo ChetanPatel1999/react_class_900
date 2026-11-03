@@ -3,11 +3,15 @@ import React, { useState } from 'react'
 const App = () => {
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState(() => {
+    return JSON.parse(localStorage.getItem("tasks") || "[]")
+  })
   function formSubmit(evt) {
     evt.preventDefault();
     console.log("form is submited");
-    setTasks([...tasks, { title: title, content: content }])
+    let newTask = [...tasks, { title: title, content: content }]
+    setTasks(newTask)
+    localStorage.setItem("tasks", JSON.stringify(newTask));
     console.log(tasks);
     setContent("");
     setTitle("");
@@ -15,7 +19,9 @@ const App = () => {
   function delteNote(id) {
     let newtask = tasks.filter((task, index) => id != index)
     setTasks(newtask);
+    localStorage.setItem("tasks", JSON.stringify(newtask))
   }
+
   return (
     <div id="box" className='w-full h-screen flex p-10 gap-10  bg-black text-white '>
       <form onSubmit={formSubmit} className='flex w-1/2 flex-col gap-10'>
